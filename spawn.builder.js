@@ -4,6 +4,7 @@ function checkBuilderNum() {
 
     if(builders.length + Memory.build.filter(c => c == 'builder').length < 3) {
         Memory.build.push('builder');
+        console.log('Added Builder to queue!');
     }
 }
 

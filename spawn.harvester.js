@@ -4,6 +4,7 @@ function checkHarvesterNum() {
 
     if(harvesters.length + Memory.build.filter(c => c == 'harvester').length < 3) {
         Memory.build.push('harvester');
+        console.log('Added Harvester to queue!');
     }
 }
 

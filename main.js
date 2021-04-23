@@ -2,10 +2,12 @@ let roleHarvester = require('role.harvester');
 let roleUpgrader = require('role.upgrader');
 let roleBuilder = require('role.builder');
 let roleScavenger = require('role.scavenger');
+let roleRepairer = require('role.repairer');
 
 let checkHarvesterNum = require('spawn.harvester');
 let checkBuilderNum = require('spawn.builder');
 let checkUpgraderNum = require('spawn.upgrader');
+let checkRepairerNum = require('spawn.repairer');
 
 let towerLogic = require('logic.towers');
 let spawnCreep = require('spawnCreep');
@@ -22,6 +24,7 @@ module.exports.loop = function () {
     checkHarvesterNum();
     checkBuilderNum();
     checkUpgraderNum();
+    checkRepairerNum();
     
     spawnCreep();
     
