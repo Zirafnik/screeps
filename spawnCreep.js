@@ -20,6 +20,15 @@ function spawnCreep() {
         
         return;
         
+    } else if((Memory.build.length > 0) && (Memory.build.includes('harvester') && (totalEnergyStored >= creepTypes['harvester'].cost))) {
+        let index = Memory.build.indexOf('harvester');
+        let type = Memory.build.splice(index, 1)[0];
+        
+        let newName = type + Game.time;
+        console.log('Spawning new ' + type + ': ' + newName);
+        spawn.spawnCreep(creepTypes[type].body, newName,
+        {memory: {role: type, src: Math.round(Math.random())}});
+        
     } else if((Memory.build.length > 0) && (totalEnergyStored >= creepTypes[Memory.build[0]].cost)){
         let type = Memory.build.shift();
         
