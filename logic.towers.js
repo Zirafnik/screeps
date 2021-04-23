@@ -1,20 +1,17 @@
-/*
-    let tower = Game.getObjectById('TOWER_ID');
+function towerLogic(tower) {
     if(tower) {
-        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+        let closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        if(closestHostile) {
+            tower.attack(closestHostile);
+        }
+        
+        let closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
             filter: (structure) => structure.hits < structure.hitsMax
         });
         if(closestDamagedStructure) {
             tower.repair(closestDamagedStructure);
         }
-
-        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if(closestHostile) {
-            tower.attack(closestHostile);
-        }
     }
-    */
+}
 
-module.exports = {
-
-};
+module.exports = towerLogic;
