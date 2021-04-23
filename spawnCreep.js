@@ -20,7 +20,7 @@ function spawnCreep() {
         
         return;
         
-    } else if(totalEnergyStored >= creepTypes[Memory.build[0]].cost){
+    } else if(Memory.build.length > 0 && totalEnergyStored >= creepTypes[Memory.build[0]].cost){
         let type = Memory.build.shift();
         
         let newName = type + Game.time;
