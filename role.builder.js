@@ -18,8 +18,8 @@ var roleBuilder = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             } else {
-                console.log('Everything is built!');
-                Game.notify('Everything built!', 0);
+                //console.log('Everything is built!');
+                //Game.notify('Everything built!', 0);
                 if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
