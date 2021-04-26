@@ -9,3 +9,4 @@ FEATURES:
 -function to calculate creep cost
 -function to calculate total energy stored
 -repairer only for rampart => otherwise switching between roads and other, since roads first in arr
+-add adjustable values (creep nums, creep body, creep src location...) all into one file
