@@ -15,7 +15,7 @@ var roleDefenseRepairer = {
             const targets = creep.room.find(FIND_STRUCTURES, {
                 filter: structure => structure.structureType == STRUCTURE_RAMPART
             });
-            console.log(targets);
+            
             targets.sort((a,b) => a.hits - b.hits);
  
             if(targets.length > 0) {
