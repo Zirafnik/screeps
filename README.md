@@ -1,5 +1,5 @@
 PROBLEMS:
--creeps get re-assigned src for harvesting each tick => when new spawn, they switch
+-creeps get re-assigned src for harvesting each tick -> when new spawn, they switch  => only harvesters mine, all other take from storage
 
 FEATURES:
 -when adding spawns to queue, make for loop to add all the missing creeps? (only for imporant classes)
@@ -13,3 +13,4 @@ FEATURES:
 -set up storage + containers -> create dedicated creep roles
 -add creep to harvest the dead
 -try folder structure + add importing files
+-towers logic
