@@ -1,5 +1,15 @@
 let creepTypes = require('creepTypes');
 
+function getCreepCost(creep) {
+    let body = creep.body;
+    let costTotal = body.reduce((sum, cur) => {
+        let partCost = BODYPART_COST[cur];
+        return sum + partCost;
+    }, 0);
+
+    return costTotal;
+}
+
 function spawnCreep() {
     let spawn = Game.spawns['Spawn1'];
     
@@ -20,20 +30,24 @@ function spawnCreep() {
         
         return;
         
-    } else if((Memory.build.length > 0) && (Memory.build.includes('harvester') && (totalEnergyStored >= creepTypes['harvester'].cost))) {
+    } else if((Memory.build.length > 0) && (Memory.build.includes('harvester') && (totalEnergyStored >= getCreepCost(creepTypes['harvester'])))) {
         let index = Memory.build.indexOf('harvester');
         let type = Memory.build.splice(index, 1)[0];
         
         let newName = type + Game.time;
         console.log('Spawning new ' + type + ': ' + newName);
+        console.log('Cost: ' + getCreepCost(creepTypes[type]));
+
         spawn.spawnCreep(creepTypes[type].body, newName,
         {memory: {role: type, src: Math.round(Math.random())}});
         
-    } else if((Memory.build.length > 0) && (totalEnergyStored >= creepTypes[Memory.build[0]].cost)){
+    } else if((Memory.build.length > 0) && (totalEnergyStored >= getCreepCost(creepTypes[Memory.build[0]]))){
         let type = Memory.build.shift();
         
         let newName = type + Game.time;
         console.log('Spawning new ' + type + ': ' + newName);
+        console.log('Cost: ' + getCreepCost(creepTypes[type]));
+
         spawn.spawnCreep(creepTypes[type].body, newName,
         {memory: {role: type, src: Math.round(Math.random())}});
     }

@@ -6,7 +6,8 @@ FEATURES:
 -make harvesters first fill up extensions, because Spawn earns a small amount of energy each tick on its own
 [x]make harvester always top priority spawn ==> other spawns depend on it
 -prioritize building queue ==> roads last to be built
--function to calculate creep cost
+[x]function to calculate creep cost
 -function to calculate total energy stored
 [x]repairer only for rampart => otherwise switching between roads and other, since roads first in arr
 -add adjustable values (creep nums, creep body, creep src location...) all into one file
+-set up storage + containers -> create dedicated creep roles
