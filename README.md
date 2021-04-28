@@ -9,6 +9,7 @@ FEATURES:
 [x]function to calculate creep cost
 -function to calculate total energy stored
 [x]repairer only for rampart => otherwise switching between roads and other, since roads first in arr
--add adjustable values (creep nums, creep body, creep src location...) all into one file
+[x]add adjustable values (creep nums, creep body, creep src location...) all into one file
 -set up storage + containers -> create dedicated creep roles
 -add creep to harvest the dead
+-try folder structure + add importing files
