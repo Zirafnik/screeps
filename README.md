@@ -11,3 +11,4 @@ FEATURES:
 [x]repairer only for rampart => otherwise switching between roads and other, since roads first in arr
 -add adjustable values (creep nums, creep body, creep src location...) all into one file
 -set up storage + containers -> create dedicated creep roles
+-add creep to harvest the dead

@@ -5,11 +5,11 @@ let roleScavenger = require('role.scavenger');
 let roleRepairer = require('role.repairer');
 let roleDefenseRepairer = require('role.defenseRepairer');
 
-let checkHarvesterNum = require('spawn.harvester');
-let checkBuilderNum = require('spawn.builder');
-let checkUpgraderNum = require('spawn.upgrader');
-let checkRepairerNum = require('spawn.repairer');
-let checkDefenseRepairerNum = require('spawn.defenseRepairer');
+let checkHarvesterNum = require('checkNum.harvester');
+let checkBuilderNum = require('checkNum.builder');
+let checkUpgraderNum = require('checkNum.upgrader');
+let checkRepairerNum = require('checkNum.repairer');
+let checkDefenseRepairerNum = require('checkNum.defenseRepairer');
 
 let towerLogic = require('logic.towers');
 let spawnCreep = require('spawnCreep');
