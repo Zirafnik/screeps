@@ -19,16 +19,24 @@ var roleHarvester = {
                         structure.structureType == STRUCTURE_TOWER) &&
                         structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
             }});
-
+            
             let arr = [];
             targets.forEach(struc => {
                 arr.push(struc.structureType);
             });
             console.log(arr);
+            
+            //make extension priority transfer
+            let index = 0;
+            if(arr.includes('extension')) {
+                index = arr.indexOf('extension');
+            } else {
+                index = 0;
+            }
         
             if(targets.length > 0) {
-                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                if(creep.transfer(targets[index], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targets[index], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             } else {
                 if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
