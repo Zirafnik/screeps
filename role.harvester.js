@@ -16,23 +16,25 @@ var roleHarvester = {
                     return (structure.structureType == STRUCTURE_EXTENSION ||
                         structure.structureType == STRUCTURE_SPAWN ||
                         structure.structureType == STRUCTURE_CONTAINER ||
-                        structure.structureType == STRUCTURE_STORAGE &&
-                        structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
+                        structure.structureType == STRUCTURE_STORAGE) &&
+                        structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
             }});
             
             let arr = [];
             targets.forEach(struc => {
                 arr.push(struc.structureType);
             });
-            console.log(arr);
             
             //make extension priority transfer
             let index = 0;
             if(arr.includes('extension')) {
                 index = arr.indexOf('extension');
+            } else if(arr.includes('spawn')) {
+                index = arr.indexOf('spawn');
             } else {
                 index = 0;
             }
+            
         
             if(targets.length > 0) {
                 if(creep.transfer(targets[index], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
