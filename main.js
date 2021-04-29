@@ -66,8 +66,9 @@ module.exports.loop = function () {
             roleDefenseRepairer.run(creep);
         }
     }
-    
-    towerLogic(Game.getObjectById(''));
+
+    let towers = _.filter(Game.structures, (struc) => struc.structureType == STRUCTURE_TOWER);
+    towers.forEach(tower => towerLogic(tower));
     
     console.log('-----------------------');
 
