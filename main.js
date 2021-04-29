@@ -4,12 +4,14 @@ let roleBuilder = require('role.builder');
 let roleScavenger = require('role.scavenger');
 let roleRepairer = require('role.repairer');
 let roleDefenseRepairer = require('role.defenseRepairer');
+let roleTowerFeeder = require('role.towerFeeder');
 
 let checkHarvesterNum = require('checkNum.harvester');
 let checkBuilderNum = require('checkNum.builder');
 let checkUpgraderNum = require('checkNum.upgrader');
 let checkRepairerNum = require('checkNum.repairer');
 let checkDefenseRepairerNum = require('checkNum.defenseRepairer');
+let checkTowerFeederNum = require('checkNum.towerFeeder');
 
 let towerLogic = require('logic.towers');
 let spawnCreep = require('spawnCreep');
@@ -29,6 +31,7 @@ module.exports.loop = function () {
     checkUpgraderNum();
     checkRepairerNum();
     checkDefenseRepairerNum();
+    checkTowerFeederNum();
     
     spawnCreep();
 
@@ -56,6 +59,9 @@ module.exports.loop = function () {
         }
         if(creep.memory.role == 'defenseRepairer') {
             roleDefenseRepairer.run(creep);
+        }
+        if(creep.memory.role == 'towerFeeder') {
+            roleTowerFeeder.run(creep);
         }
     }
 

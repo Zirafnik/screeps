@@ -1,25 +1,24 @@
-var roleRepairer = {
+var roleTowerFeeder = {
 
     run: function(creep) {
 
-        if(creep.memory.repairing && creep.store[RESOURCE_ENERGY] == 0) {
-            creep.memory.repairing = false;
+        if(creep.memory.feeding && creep.store[RESOURCE_ENERGY] == 0) {
+            creep.memory.feeding = false;
             creep.say('🔄 harvest');
         }
-        if(!creep.memory.repairing && creep.store.getFreeCapacity() == 0) {
-            creep.memory.repairing = true;
+        if(!creep.memory.feeding && creep.store.getFreeCapacity() == 0) {
+            creep.memory.feeding = true;
             creep.say('⚡ repair');
         }
 
-        if(creep.memory.repairing) {
+        if(creep.memory.feeding) {
             const targets = creep.room.find(FIND_STRUCTURES, {
-                filter: structure => structure.structureType == STRUCTURE_ROAD
+                filter: structure => structure.structureType == STRUCTURE_TOWER
             });
-        
-            targets.sort((a,b) => a.hits - b.hits);
+            
  
             if(targets.length > 0) {
-                if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
+                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
                 }
             } else {
@@ -43,4 +42,4 @@ var roleRepairer = {
     }
 };
 
-module.exports = roleRepairer;
+module.exports = roleTowerFeeder;
