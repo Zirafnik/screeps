@@ -20,5 +20,4 @@ FEATURES:
 -make defensive strong creeps meele + ranged, when ramparts.length > 0
 -make tough creeps meele + ranged, when no ramparts
 -update creep saying
--update creep bodies
 -if storage empty, make creeps use what they have in inventory instead of waiting for it to fill
