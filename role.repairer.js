@@ -16,9 +16,9 @@ var roleRepairer = {
                 filter: structure => structure.structureType == STRUCTURE_ROAD
             });
         
-            targets.sort((a,b) => a.hits - b.hits);
+            //targets.sort((a,b) => a.hits - b.hits);
  
-            if(targets.length > 0) {
+            if(targets.length > 0 && (targets[0].hits < targets[0].hitsMax)) {
                 if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
                 }
