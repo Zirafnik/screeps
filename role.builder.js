@@ -26,9 +26,15 @@ var roleBuilder = {
             }
         }
         else {
-            let sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[creep.memory.src]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[creep.memory.src], {visualizePathStyle: {stroke: '#ffaa00'}});
+            let storage = creep.room.find(FIND_STRUCTURES, {
+                filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_CONTAINER ||
+                        structure.structureType == STRUCTURE_STORAGE &&
+                        structure.store.getUsedCapacity() > 0);
+            }});
+
+            if(creep.withdraw(storage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(storage[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
     }

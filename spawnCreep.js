@@ -33,23 +33,46 @@ function spawnCreep() {
     } else if((Memory.build.length > 0) && (Memory.build.includes('harvester') && (totalEnergyStored >= getCreepCost(creepTypes['harvester'])))) {
         let index = Memory.build.indexOf('harvester');
         let type = Memory.build.splice(index, 1)[0];
+
+        let src0Harvesters = [];
+        let src1Harvesters = [];
+        for(let name in Memory.creeps) {
+            let creep = Game.creeps[name];
+
+            if(creep.memory.role != 'harvester') {
+                continue;
+            }
+            
+            if(creep.memory.src == 0) {
+                src0Harvesters.push(creep);
+            } else if(creep.memory.src == 1) {
+                src1Harvesters.push(creep);
+            }
+        }
+
+        let useSrc = 0;
+        if(src0Harvesters.length >= src1Harvesters.length) {
+            useSrc = 1;
+        }
         
         let newName = type + Game.time;
+
         console.log('Spawning new ' + type + ': ' + newName);
         console.log('Cost: ' + getCreepCost(creepTypes[type]));
 
         spawn.spawnCreep(creepTypes[type].body, newName,
-        {memory: {role: type, src: Math.round(Math.random())}});
+        {memory: {role: type, src: useSrc}});
         
     } else if((Memory.build.length > 0) && (totalEnergyStored >= getCreepCost(creepTypes[Memory.build[0]]))){
         let type = Memory.build.shift();
         
         let newName = type + Game.time;
+
         console.log('Spawning new ' + type + ': ' + newName);
         console.log('Cost: ' + getCreepCost(creepTypes[type]));
 
         spawn.spawnCreep(creepTypes[type].body, newName,
-        {memory: {role: type, src: Math.round(Math.random())}});
+        {memory: {role: type}});
     }
 }
 

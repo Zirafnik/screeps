@@ -30,21 +30,12 @@ module.exports.loop = function () {
     checkDefenseRepairerNum();
     
     spawnCreep();
-    
-    let srcNum = true;
+
 
     for(let name in Game.creeps) {
         let creep = Game.creeps[name];
-        creep.notifyWhenAttacked(true);
-        
-        //allocates creeps across 2 resources equaly
-        if(srcNum) {
-            creep.memory.src = 1;
-            srcNum = false;
-        } else {
-            creep.memory.src = 0;
-            srcNum = true;
-        }
+
+        creep.notifyWhenAttacked(true);      
         
         //assigns roles
         if(creep.memory.role == 'harvester') {
