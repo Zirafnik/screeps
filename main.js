@@ -14,6 +14,7 @@ let checkDefenseRepairerNum = require('checkNum.defenseRepairer');
 let towerLogic = require('logic.towers');
 let spawnCreep = require('spawnCreep');
 
+
 module.exports.loop = function () {
     
     for(let name in Memory.creeps) {
