@@ -20,4 +20,8 @@ FEATURES:
 -make defensive strong creeps meele + ranged, when ramparts.length > 0
 -make tough creeps meele + ranged, when no ramparts
 -update creep saying
+-repairer fix one object in full
+-harvester choose closest extension
+-if totalEnergy already over XXX, start filling storage
+-if harvester already heading toward extension/storage and has enough energy to fill it, choose targets[1] as location ...
 -if storage empty, make creeps use what they have in inventory instead of waiting for it to fill

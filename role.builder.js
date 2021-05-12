@@ -33,6 +33,10 @@ var roleBuilder = {
                         structure.store.getUsedCapacity() > 0;
             }});
 
+            if(storage.length == 0 && creep.store[RESOURCE_ENERGY] > 0) {
+                creep.memory.building = true;
+            }
+
             if(creep.withdraw(storage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(storage[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
